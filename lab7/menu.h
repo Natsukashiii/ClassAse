@@ -1,5 +1,7 @@
-#ifndef menu_h
-#define menu_h
-int MenuConfig(char *cmd, char *desc, int (*handler)(int argc, char* argv[]));
+#ifndef _MENU_H
+#define _MENU_H
+/* add cmd to menu */
+int MenuConfig(char* cmd, char *desc, int(*handler)(int argc, char* argv[]));
+/* Menu Engine Execute */
 int ExecuteMenu();
-#endif /* Menu_h */
+#endif

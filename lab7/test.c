@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "menu.h"
-int Quit(int argc, char **argv)
-{
-    exit(0);
-}
-int argtest(int argc, char **argv)
+int testarg(int argc, char *argv[])
 {
     const char *optString = "lah";
     opterr = 0;
@@ -17,12 +13,12 @@ int argtest(int argc, char **argv)
         {
             case 'l':
                 printf("this -l option\n");
-                break;
+                break;            
             case 'a':
                 printf("this -a option\n");
                 break;
             case 'h':
-                printf("in this cmd, you have 3 options can use:\n");
+                printf("in this cmd, you have 3 option can use:\n");
                 printf("-l\n");
                 printf("-a\n");
                 printf("-h\n");
@@ -35,11 +31,16 @@ int argtest(int argc, char **argv)
     optind = 0;
     return 0;
 }
-int main(int argc, char **argv)
+int Quit(int argc, char *argv[])
 {
-    MenuConfig("version", "Author:Natsukashii\nProgram Version:1.0\n", NULL);
-    MenuConfig("argtest", "test arg option", argtest);
-    MenuConfig("quit", "quit from Macbook", Quit);
-    int ExcuteMenu(void);
+    exit(0);
+}
+int main(int argc, char *argv[])
+{
+    MenuConfig("version", "Menu program v3.0", NULL);
+    MenuConfig("testarg", "test arg option", testarg);
+    MenuConfig("quit", "quit from XXX", Quit);
+
+    ExcuteMenu();
     return 0;
 }
